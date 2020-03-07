@@ -21,3 +21,4 @@
 auth0/Jenkins-Local.secret
 
 /.env
+*.jar
