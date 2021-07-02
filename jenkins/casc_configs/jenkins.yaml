@@ -104,6 +104,22 @@ unclassified:
     globalConfigName: "Jenkins CI"
   globalDefaultFlowDurabilityLevel:
     durabilityHint: PERFORMANCE_OPTIMIZED
+  globalLibraries:
+    libraries:
+      - defaultVersion: "feat/sharedlib"
+        name: "bootstrap"
+        retriever:
+          modernSCM:
+            libraryPath: "jenkins/library/"
+            scm:
+              git:
+                credentialsId: "jenkins_bootstrap_deploy_key"
+                id: "git-jenkins-bootstrap"
+                remote: "https://github.com/bdellegrazie/jenkins-bootstrap.git"
+                traits:
+                  - "gitBranchDiscovery"
+                  - headRegexFilter:
+                      regex: "feat\\/sharedLib"
   location:
     adminAddress: brett.dellegrazie+jenkins@gmail.com
     url: "${JENKINS_PUBLIC_URL}"

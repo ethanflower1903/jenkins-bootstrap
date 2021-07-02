@@ -1,5 +1,7 @@
+@Library('bootstrap') _
+
 pipeline {
-  agent any
+  agent docker-agent
   stages {
     stage("Prepare") {
       steps {
@@ -23,6 +25,7 @@ pipeline {
       steps {
         echo "Deploying..."
         sleep time: 6
+        archiveBuildLog()
       }
     }
   }
